@@ -45,7 +45,7 @@ def get_row_iterator(table_spec, file_handle):
             else:
                 max_row = 0
                 longest_sheet_index = 0
-                for i, sheet in enumerate(sheet_list):
+                for i, sheet in enumerate(worksheets):
                     if sheet.max_row > max_row:
                         max_row = i.max_row
                         longest_sheet_index = i
