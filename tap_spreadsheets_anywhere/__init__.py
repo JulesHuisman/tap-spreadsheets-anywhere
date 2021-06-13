@@ -65,6 +65,12 @@ def discover(config):
             }
 
             merged_schema = override_schema_with_config(inferred_schema, table_spec)
+            # Ignore empty columns
+            merged_schema['properties'] = {key: value
+                                           for key, value
+                                           in merged_schema['properties'].items()
+                                           if key != ''}
+
             schema = Schema.from_dict(merged_schema)
 
             stream_metadata = []
